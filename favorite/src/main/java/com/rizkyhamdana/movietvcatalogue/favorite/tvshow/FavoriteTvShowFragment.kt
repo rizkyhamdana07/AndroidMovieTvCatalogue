@@ -6,13 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rizkyhamdana.movietvcatalogue.core.domain.model.TvShow
-import com.rizkyhamdana.movietvcatalogue.databinding.FragmentFavoriteTvShowBinding
 import com.rizkyhamdana.movietvcatalogue.core.ui.favorite.FavoriteTvShowAdapter
+import com.rizkyhamdana.movietvcatalogue.favorite.databinding.FragmentFavoriteTvShowBinding
+import com.rizkyhamdana.movietvcatalogue.favorite.di.favoriteModule
 import com.rizkyhamdana.movietvcatalogue.favorite.tvshow.details.DetailsFavoriteTvShowActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
+import org.koin.core.context.unloadKoinModules
 
 
 class FavoriteTvShowFragment : Fragment() {
@@ -34,7 +36,7 @@ class FavoriteTvShowFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        loadKoinModules(favoriteModule)
         favoriteTvShowAdapter = FavoriteTvShowAdapter()
 
         favoriteTvShowViewModel.getFavoriteTv.observe(viewLifecycleOwner, {
@@ -57,5 +59,6 @@ class FavoriteTvShowFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        unloadKoinModules(favoriteModule)
     }
 }

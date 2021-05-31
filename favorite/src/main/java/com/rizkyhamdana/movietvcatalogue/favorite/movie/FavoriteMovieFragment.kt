@@ -6,13 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rizkyhamdana.movietvcatalogue.core.domain.model.Movies
-import com.rizkyhamdana.movietvcatalogue.databinding.FragmentFavoriteMovieBinding
 import com.rizkyhamdana.movietvcatalogue.core.ui.favorite.FavoriteMovieAdapter
+import com.rizkyhamdana.movietvcatalogue.favorite.databinding.FragmentFavoriteMovieBinding
+import com.rizkyhamdana.movietvcatalogue.favorite.di.favoriteModule
 import com.rizkyhamdana.movietvcatalogue.favorite.movie.details.DetailsFavoriteMovieActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
+import org.koin.core.context.unloadKoinModules
 
 
 class FavoriteMovieFragment : Fragment() {
@@ -35,6 +37,7 @@ class FavoriteMovieFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loadKoinModules(favoriteModule)
 
         favoriteMovieAdapter = FavoriteMovieAdapter()
 
@@ -57,5 +60,6 @@ class FavoriteMovieFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        unloadKoinModules(favoriteModule)
     }
 }

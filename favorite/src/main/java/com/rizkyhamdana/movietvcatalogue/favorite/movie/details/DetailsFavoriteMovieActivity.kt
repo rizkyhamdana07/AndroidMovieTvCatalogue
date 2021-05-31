@@ -10,9 +10,12 @@ import com.bumptech.glide.request.RequestOptions
 import com.rizkyhamdana.movietvcatalogue.BuildConfig
 import com.rizkyhamdana.movietvcatalogue.R
 import com.rizkyhamdana.movietvcatalogue.core.domain.model.Movies
-import com.rizkyhamdana.movietvcatalogue.databinding.ActivityDetailsFavoriteMovieBinding
+import com.rizkyhamdana.movietvcatalogue.favorite.databinding.ActivityDetailsFavoriteMovieBinding
+import com.rizkyhamdana.movietvcatalogue.favorite.di.favoriteModule
 import com.rizkyhamdana.movietvcatalogue.home.HomeActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
+import org.koin.core.context.unloadKoinModules
 
 class DetailsFavoriteMovieActivity : AppCompatActivity(){
 
@@ -25,6 +28,7 @@ class DetailsFavoriteMovieActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        loadKoinModules(favoriteModule)
         binding = ActivityDetailsFavoriteMovieBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -66,6 +70,11 @@ class DetailsFavoriteMovieActivity : AppCompatActivity(){
                     RequestOptions().placeholder(R.drawable.ic_loading).error(R.drawable.ic_error))
                 .into(imgBackdrop)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unloadKoinModules(favoriteModule)
     }
 
 }

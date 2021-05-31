@@ -12,8 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieTvCatalogue">
-        <activity android:name=".favorite.tvshow.details.DetailsFavoriteTvShowActivity"></activity>
-        <activity android:name=".favorite.movie.details.DetailsFavoriteMovieActivity" />
+
         <activity android:name=".tvshow.details.DetailsTvShowActivity" />
         <activity android:name=".movie.details.DetailsMovieActivity" />
         <activity
