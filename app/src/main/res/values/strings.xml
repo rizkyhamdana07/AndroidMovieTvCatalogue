@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">MovieTvCatalogue</string>
+    <string name="title_movie">Movie</string>
+    <string name="title_tv_show">Tv Show</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="toolbar_title">Movie Tv Show Catalogue</string>
+    <string name="details">Details</string>
+    <string name="backdrop_image">Image Backdrop</string>
+    <string name="poster_image">Image Poster</string>
+    <string name="title">Title</string>
+    <string name="release_date">Release Date</string>
+    <string name="genre">Genre</string>
+    <string name="overview">Overview</string>
+    <string name="favorite">favorite</string>
+    <string name="yes">Yes</string>
+    <string name="deleted">Delete success</string>
+    <string name="no">No</string>
+    <string name="delete_title">Delete item</string>
+    <string name="delete_message">Are you sure want to delete this item?</string>
+    <string name="cancel_title">Cancel Favorite</string>
+    <string name="cancel_message">Are you sure want to cancel favorite?</string>
+    <string name="nothing_data">Nothing Data :(</string>
+    <string name="favorite_success">Favorite success</string>
+    <string name="cancel_favorite">Cancel favorite success</string>
+    <string name="tab_text_1">Movie</string>
+    <string name="tab_text_2">Tv Show</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete">Delete</string>
+</resources>
